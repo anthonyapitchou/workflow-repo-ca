@@ -5,7 +5,7 @@ export async function getVenue(id) {
     throw new Error("No id provided");
   }
 
-  const url = `${CONFIG.apiUrl}venues/${id}`;
+  const url = `${CONFIG.apiUrl}holidaze/venues/${id}`;
 
   const response = await fetch(url);
   const json = await response.json();
@@ -15,5 +15,5 @@ export async function getVenue(id) {
     throw new Error(json.errors?.[0]?.message || "Fetching venue failed");
   }
 
-  return json;
+  return json.data;
 }
